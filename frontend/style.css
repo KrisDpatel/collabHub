@@ -1,0 +1,407 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body and Global Styles */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #F2EFE7;
+    line-height: 1.6;
+    height: 100vh; /* Make the body take full height */
+    display: flex;
+    flex-direction: column; /* Stack the content and footer vertically */
+   
+  }
+
+  main {
+    flex-grow: 1; /* This ensures the content area grows and takes available space */ 
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Header Section */
+  header {
+    background-color: #210F37;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header .logo h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+  
+  header nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: 0.3s;
+  }
+  
+  header nav ul li a:hover {
+    color: #f39c12;
+  }
+  span{
+    padding: 0%;
+    margin: 0%;
+  }
+  
+  /* Typing Effect for Logo */
+  /* Typing Effect for Collab Hub (only) */
+    #typing-effect{
+    display: inline-block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.1em solid #f39c12;
+    animation: typing 3s steps(20) 1s forwards, blink 0.75s step-end infinite;
+    vertical-align: bottom;  /* This keeps it aligned with other text */
+    margin-bottom: 0;  /* Remove any extra space below */
+  }
+  
+  /* Typing Animation Keyframes */
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 10ch; /* Adjust this to match the length of "Collab Hub" */
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  #typing-effect{
+    animation: typing 3s steps(20) 1s forwards, blink 0.75s step-end infinite;
+  animation-delay: 2s, 2s; /* 2s delay for typing, 0s for blink */
+  animation-timing-function: steps(30, end); /* Smooth typing */
+  animation-iteration-count: infinite; /* Keep repeating */
+  }
+  
+  
+  /* Main Section */
+  main {
+    padding: 50px 10px;
+    
+  }
+
+  .card-section{
+    padding: 2em 1em;
+    margin: auto;
+  }
+  
+  main .intro{
+    padding: auto;
+    margin: auto;
+    width: 30vw;
+  }
+  
+  main .intro h2 {
+    font-size: 2.5rem;
+    color: #0118D8;
+    margin-bottom: 20px;
+  }
+  
+  main .intro p {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Flexbox for Faculty and Student Sections */
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .card {
+    background-color: white;
+    padding: 2rem;
+    /* border: 1px solid #ddd; */
+    border-left: 3px solid #0118D8;
+    border-right: 3px solid #0118D8;
+    border-radius: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Footer Section */
+  footer {
+    background-color: #210F37;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+  }
+  
+  footer .footer-content p {
+    margin-bottom: 10px;
+  }
+  
+  footer .footer-content ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  footer .footer-content ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  footer .footer-content ul li a:hover {
+    color: #f39c12;
+  }
+  
+  /* Login Form */
+.login-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F2EFE7;
+  padding: 60px 20px;
+}
+
+.login-form {
+  background-color: white;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+  color: #210F37;
+}
+
+.login-form label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #210F37;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #3d2168;
+}
+
+.login-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  background-color: white;
+  font-size: 1rem;
+}
+
+/* Signup Page Styles */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.signup-form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.signup-form h2 {
+  text-align: center;
+  color: #210F37;
+  margin-bottom: 20px;
+}
+
+.signup-form input,
+.signup-form select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.signup-form button {
+  padding: 12px;
+  font-size: 1.1rem;
+  background-color: #210F37;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signup-form button:hover {
+  background-color: #34495e;
+}
+
+/* Upload Icon */
+.photo-upload-label {
+  text-align: center;
+  cursor: pointer;
+}
+
+.upload-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px dashed #aaa;
+  padding: 5px;
+}
+
+
+/* Events Page Styling */
+.event-container {
+  padding: 2em;
+  text-align: center;
+}
+
+.event-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 2em;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  background-color: #0118D8;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.tab-btn:hover, .tab-btn.active {
+  background-color: #f39c12;
+}
+
+.tab-content {
+  display: none;
+}
+
+.event-card {
+  background: white;
+  border-left: 3px solid #0118D8;
+  border-radius: 15px;
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* event page css */
+.profile-nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-dropdown span {
+  font-weight: bold;
+  color: #fff;
+}
+
+#logoutBtn {
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#logoutBtn:hover {
+  background-color: #d50a0a;
+}
+

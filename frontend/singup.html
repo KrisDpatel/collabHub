@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Signup - Collab Hub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <h1>Collab Hub</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#" onclick="handleNavigation('events')">Events</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Signup</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Signup Form Section -->
+  <main>
+    <section class="signup-container">
+      <form id="signup-form" class="signup-form" enctype="multipart/form-data">
+        <h2>SignUp</h2><hr>
+
+        <!-- Photo Upload & Preview -->
+        <label for="photo-upload" class="photo-upload-label">
+          <img id="preview-img" src="../photo/photo.png" alt="Upload Icon" class="upload-icon" />
+        </label>
+        <input type="file" id="photo-upload" name="photo" accept="image/*" style="display: none;" required/>
+
+        <!-- Role Dropdown -->
+        <label for="role"></label>
+        <select name="role" id="role" required>
+          <option value="">Select Role</option>
+          <option value="student">Student</option>
+          <option value="faculty">Faculty</option>
+          <option value="admin">Admin</option>
+        </select>
+
+        <!-- Text Fields -->
+        <input type="text" name="username" id="username" placeholder="Username*" required />
+        <input type="text" name="institute" id="institute" placeholder="Institute Name*" required />
+        <input type="text" name="er_no" id="er_no" placeholder="Enrollment No:*" required/>
+        <input type="text" name="department" id="department" placeholder="Department Name" />
+        <input type="email" name="email" id="email" placeholder="Email*" required />
+        <input type="tel" name="mobile" id="mobile" placeholder="Mobile Number" />
+        <input type="text" name="city" id="city" placeholder="City" />
+        <input type="password" name="password" id="password" placeholder="Password*" required />
+        <input type="text" name="semester" id="semester" placeholder="Semester" />
+
+        <button type="submit">Signup</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Collab Hub. All Rights Reserved.</p>
+      <ul>
+        <li><a href="#">Terms and Conditions</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script src="signup.js" defer></script>
+</body>
+</html>
