@@ -13,17 +13,25 @@
     <div class="logo">
       <h1>Collab Hub</h1>
     </div>
+    
     <nav class="profile-nav">
       <ul>
-        <li class="user-info">
+        <li class="user-info" id="userInfo">
           <img src="" alt="Profile" id="profile-pic" class="profile-pic-faculty">
           <div class="user-dropdown">
-            <span id="username-display">Username</span>
-            <button id="logoutBtn">Logout</button>
-          </div>
+          <span id="username-display">Username</span>
+          <button id="logoutBtn">Logout</button>
+        </div>
+          <ul class="dropdown-menu" id="dropdownMenu" style="display: none;">
+            <li><a href="profile-settings.html">Profile Settings</a></li>
+            <li><a href="create-event.html">Create Event</a></li>
+            <li><a href="create-collab.html">Create Collab</a></li>
+            
+          </ul>
         </li>
       </ul>
     </nav>
+    
     
   </header>
 
@@ -38,16 +46,6 @@
 
     <!-- Content Sections -->
     <div id="eventSection" class="tab-content">
-      <h2>Major Events</h2>
-      <div class="event-card">
-        <h3>Hackathon 2025</h3>
-        <p>A 48-hour coding marathon where teams solve real-world problems. Mentorship and cash prizes included.</p>
-      </div>
-      <div class="event-card">
-        <h3>Innovation Challenge</h3>
-        <p>Submit innovative tech projects and pitch ideas to industry experts. Open to all departments.</p>
-      </div>
-    </div>
 
     <div id="collabSection" class="tab-content" style="display: none;">
       <h2>Collab Activities</h2>

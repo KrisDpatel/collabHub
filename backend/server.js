@@ -3,6 +3,7 @@ const cros = require('cors')
 const connectDB = require('./config/db');
 const bodyParser = require('body-parser');
 const authRoute = require('./routes/auth');
+const eventRoutes = require('./routes/event');
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -18,10 +19,11 @@ app.use(cros());
 app.use(express.json());
 // Routes
 app.use('/api/auth', authRoute);
-app.use('/uploads', express.static('uploads'));
+app.use('/api/event', eventRoutes);
+// app.use('/uploads', express.static('uploads'));
 
-// const path = require('path');
-// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+const path = require('path');
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
 app.get('/',( req,res)=>{
