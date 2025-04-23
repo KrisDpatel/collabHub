@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Events | Collab Hub</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <h1>Collab Hub</h1>
+    </div>
+    <nav class="profile-nav">
+      <ul>
+        <li class="user-info">
+          <img src="" alt="Profile"  id ="profile-pic" class="profile-pic-student">
+          <div class="user-dropdown">
+            <span id="username-display">Username</span>
+            <button id="logoutBtn">Logout</button>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    
+  </header>
+
+  <!-- Main Section -->
+  <main class="event-container">
+    <!-- Tabs -->
+    <div class="event-tabs">
+      <button class="tab-btn active" onclick="showTab('eventSection')">Events</button>
+      <button class="tab-btn" onclick="showTab('collabSection')">Collabs</button>
+      <button class="tab-btn" onclick="showTab('issuesSection')">Issues</button>
+    </div>
+
+    <!-- Content Sections -->
+    <div id="eventSection" class="tab-content">
+      <h2>Major Events</h2>
+      <div class="event-card">
+        <h3>Hackathon 2025</h3>
+        <p>A 48-hour coding marathon where teams solve real-world problems. Mentorship and cash prizes included.</p>
+      </div>
+      <div class="event-card">
+        <h3>Innovation Challenge</h3>
+        <p>Submit innovative tech projects and pitch ideas to industry experts. Open to all departments.</p>
+      </div>
+    </div>
+
+    <div id="collabSection" class="tab-content" style="display: none;">
+      <h2>Collab Activities</h2>
+      <div class="event-card">
+        <h3>Team Meetup - AI Project</h3>
+        <p>Join a group working on a smart chatbot. Looking for frontend and ML developers.</p>
+      </div>
+    </div>
+
+    <div id="issuesSection" class="tab-content" style="display: none;">
+      <h2>Q&A - Student Issues</h2>
+      <div class="event-card">
+        <h3>How to prepare for hackathons?</h3>
+        <p>Posted by: Riya123<br><em>Answers: Practice DSA, build small projects, read about design thinking...</em></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Collab Hub. All Rights Reserved.</p>
+      <ul>
+        <li><a href="#">Terms and Conditions</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../event.js"></script>
+
+</body>
+</html>

@@ -373,11 +373,22 @@
   position: relative;
 }
 
-.profile-pic {
-  width: 40px;
-  height: 40px;
+.profile-pic-student {
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
+  border:2px dashed rgb(10, 234, 10);
+  padding: 2px;
+}
+
+.profile-pic-faculty {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border:2px dashed red;
+  padding:2px;
 }
 
 .user-dropdown {

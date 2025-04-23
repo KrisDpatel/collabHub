@@ -31,7 +31,13 @@ document.getElementById("loginForm").addEventListener("submit", async function (
       // localStorage.setItem("user", JSON.stringify(data.user));
 
       // ✅ Redirect to Events page
-      window.location.href = "event.html";
+      if (data.role === 'student') {
+        window.location.href = 'student-dashbord/event_student.html';
+      } 
+      else if (data.role === 'faculty') {
+        window.location.href = 'faculty-dashbord/event_faculty.html';
+      }
+      
 
       } else {
         alert("Login Failed ❌ " + data.message);

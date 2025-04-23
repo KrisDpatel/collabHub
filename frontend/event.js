@@ -35,13 +35,13 @@
   }
 
   if (photo) {
-    document.querySelector(".profile-pic").src = `http://localhost:5000/uploads/${photo}`;
+    document.querySelector("#profile-pic").src = `http://localhost:5000/uploads/${photo}`;
   }
   
     // Logout logic
     document.getElementById("logoutBtn").addEventListener("click", () => {
       localStorage.clear();
-      window.location.href = "login.html";
+      window.location.href = "../login.html";
     });
   });
   
