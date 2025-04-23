@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
   mobile: { type: String },
   er_no: { type: String ,required:true},
   city: { type: String },
-  role: { type: String, required: true },
+  role: { type: String, required: true,enum:['student','faculty'] },
   semester: { type: String },
   photo: { type: String }, 
 });
