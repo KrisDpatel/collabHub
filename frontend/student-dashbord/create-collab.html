@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Collab</title>
+  <link rel="stylesheet" href="create-collab.css" />
+</head>
+<body>
+  <div class="event-form-container">
+    <h2>Create New Collab</h2>
+    <form id="eventForm" enctype="multipart/form-data">
+      <label for="title">Event Title *</label>
+      <input type="text" id="title" name="title" placeholder="Enter event title" required />
+
+      <label for="description">Description *</label>
+      <textarea id="description" name="description" placeholder="Describe your event..." required></textarea>
+
+      <label for="date">Date *</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="time">Time *</label>
+      <input type="time" id="time" name="time" required />
+
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" placeholder="Enter location" />
+
+      <label for="type">Event Type</label>
+      <input type="text" id="type" name="type" placeholder="Event Type" />
+       
+
+      <label for="photo">Event Photo</label>
+      <input type="file" id="photo" name="photo" accept="image/*" />
+
+      <button type="submit">Create Collab</button>
+    </form>
+    <p id="msg"></p>
+  </div>
+
+  <script src="create-collab.js"></script>
+</body>
+</html>
