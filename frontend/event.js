@@ -1,3 +1,4 @@
+
   function showTab(id) {
     const contents = document.querySelectorAll('.tab-content');
     const tabs = document.querySelectorAll('.tab-btn');
@@ -88,6 +89,36 @@
     }
   }
 
+  
+   // featch collabs
+   async function fetchCollabs() {
+    try {
+      const response = await fetch('http://localhost:5000/api/collab/get-collab');
+      const collabs = await response.json();
+
+      const container = document.getElementById('collabSection');
+      container.innerHTML = " ";
+
+      collabs.forEach(collab => {
+        const card = document.createElement('div');
+        card.className = 'event-card';
+
+        card.innerHTML = `
+          <img src="http://localhost:5000/uploads/${collab.photo}" alt="Event Image" />
+          <h3>${collab.title}</h3>
+          <p>${collab.description}</p>
+          <p><strong>Date:</strong> ${new Date(collab.date).toLocaleDateString()}</p>
+        `;
+
+        container.appendChild(card);
+      });
+
+    } catch (error) {
+      console.error('Error fetching events:', error);
+    }
+  } 
+
+
   // Call on page load
-  document.addEventListener('DOMContentLoaded', fetchEvents);
+  document.addEventListener('DOMContentLoaded', ()=>{fetchEvents(),fetchCollabs()});
   
