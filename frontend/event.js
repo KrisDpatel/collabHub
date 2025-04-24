@@ -1,3 +1,4 @@
+// const userId = localStorage.getItem("userId");
 
   function showTab(id) {
     const contents = document.querySelectorAll('.tab-content');
@@ -119,6 +120,108 @@
   } 
 
 
+  const postQuestionBtn = document.getElementById("postQuestionBtn");
+const questionFormContainer = document.getElementById("questionFormContainer");
+
+// Toggle display on button click
+postQuestionBtn.addEventListener("click", () => {
+  const isVisible = questionFormContainer.style.display === "block";
+  questionFormContainer.style.display = isVisible ? "none" : "block";
+});
+
+// Close if clicked outside
+window.addEventListener("click", function (e) {
+  if (!questionFormContainer.contains(e.target) && e.target !== postQuestionBtn) {
+    questionFormContainer.style.display = "none";
+  }
+});
+
+// console.log(localStorage.getItem("username"));
+// console.log(localStorage.getItem("role"));
+// console.log(localStorage.getItem("photo"));
+// console.log(localStorage.getItem("userId"));
+
+
+  // Q&A session
+
+ // Q&A session
+const username = localStorage.getItem("username");
+const userRole = localStorage.getItem("userRole"); // 'faculty' or 'student'
+const userId = localStorage.getItem("userId");
+
+document.getElementById("questionForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const content = document.getElementById("questionText").value;
+
+  const res = await fetch("http://localhost:5000/api/qna/questions", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ content, userId})
+  });
+
+  if (res.ok) {
+    document.getElementById("questionText").value = "";
+    loadQuestions();
+  }
+});
+
+async function loadQuestions() {
+  const res = await fetch("http://localhost:5000/api/qna/questions");
+  if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+  const questions = await res.json();
+  const list = document.getElementById("questionsList");
+  list.innerHTML = "";
+
+  for (const q of questions) {
+    const card = document.createElement("div");
+    card.className = "event-card";
+    const isFaculty = q.postedBy.role === "faculty";
+    card.innerHTML = `
+      <p><strong>${q.postedBy.username}${isFaculty ? ' (F)' : ''}</strong>: ${q.content}</p>
+      <form class="answer-form" data-id="${q._id}">
+        <textarea placeholder="Write your answer..." required></textarea>
+        <button type="submit">Answer</button>
+      </form>
+      <div class="answers" id="answers-${q._id}"></div>
+    `;
+
+    list.appendChild(card);
+
+    // Load existing answers
+    loadAnswers(q._id);
+
+    // Answer form submission
+    card.querySelector(".answer-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const content = e.target.querySelector("textarea").value;
+
+      await fetch(`http://localhost:5000/api/qna/questions/${q._id}/answers`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content, userId })
+      });
+
+      e.target.querySelector("textarea").value = "";
+      loadAnswers(q._id);
+    });
+  }
+}
+
+async function loadAnswers(questionId) {
+  const res = await fetch(`http://localhost:5000/api/qna/questions/${questionId}`);
+  const { answers } = await res.json();
+  const container = document.getElementById(`answers-${questionId}`);
+  container.innerHTML = "";
+
+  for (const a of answers) {
+    const div = document.createElement("div");
+    const isFaculty = a.postedBy.role === "faculty";
+    div.className = "answer-card";
+    div.innerHTML = `<p><strong>${a.postedBy.username}${isFaculty ? ' (F)' : ''}</strong>: ${a.content}</p>`;
+    container.appendChild(div);
+  }
+}
+
   // Call on page load
-  document.addEventListener('DOMContentLoaded', ()=>{fetchEvents(),fetchCollabs()});
+  document.addEventListener('DOMContentLoaded', ()=>{fetchEvents(),fetchCollabs(),loadQuestions()});
   

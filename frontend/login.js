@@ -22,6 +22,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
   
       if (res.ok) {
         alert("Login Successful ✅");
+        localStorage.setItem("userId", data._id);
         localStorage.setItem("username", data.username);
         localStorage.setItem("photo", data.photo); // will be used in nav
         localStorage.setItem("role", data.role); 

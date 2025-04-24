@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const authRoute = require('./routes/auth');
 const eventRoutes = require('./routes/event');
 const collabRoutes = require('./routes/collab');
+const qnaRoutes = require('./routes/qna');
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use('/api/auth', authRoute);
 app.use('/api/event', eventRoutes);
 app.use('/api/collab', collabRoutes);
+app.use('/api/qna', qnaRoutes);
 // app.use('/uploads', express.static('uploads'));
 
 const path = require('path');
