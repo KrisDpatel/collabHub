@@ -348,7 +348,6 @@
 
 /* new event card styles */
 
-/* Outer card - already applied in your HTML */
 .event-card {
   margin: 10px 20px;
   padding: 0;
@@ -356,17 +355,15 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   background-color: #fff;
-  max-width: 300px;
+  max-width: 320px;
   box-sizing: border-box;
 }
 
-/* Vertical layout */
 .event-inner-vertical {
   display: flex;
   flex-direction: column;
 }
 
-/* Image full width */
 .event-photo {
   width: 100%;
   padding: 10px;
@@ -375,7 +372,6 @@
   object-fit:cover;
 }
 
-/* Content below image */
 .event-content {
   padding: 20px;
 }
@@ -398,7 +394,6 @@
   margin-bottom: 15px;
 }
 
-/* Register button */
 
 .register-btn {
   background-color: #3498db;
@@ -418,7 +413,6 @@
   background-color: #2980b9;
 }
 
-/* Grid layout for all event cards */
 .events-grid {
   display: flex;
   flex-wrap: wrap;
@@ -428,6 +422,11 @@
   margin: 10px;
 }
 
+.register-btn.disabled {
+  background-color: gray;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
 
 /* event page css */
 .profile-nav ul {

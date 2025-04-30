@@ -24,7 +24,7 @@
           <ul class="dropdown-menu" id="dropdownMenu" style="display: none;">
             <li><a href="profile-settings.html">Profile Settings</a></li>
             <li><a href="create-collab.html">Create Collab</a></li>
-            
+            <li><a href="">My Events</a></li>
           </ul>
         </li>
       </ul>
@@ -43,14 +43,19 @@
 
     <!-- Content Sections -->
     <div id="eventSection" class="tab-content events-grid">
+      <h2 style="text-align: center; margin-top: 30px;">Upcoming Events</h2>
+      <div id="upcomingEvents" class="events-grid"></div>
+
+      <h2 style="text-align: center; margin-top: 50px;">Past Events</h2>
+      <div id="pastEvents" class="events-grid"></div>
     </div>
 
     <div id="collabSection" class="tab-content events-grid" style="display:none;">
-      <h2>Collab Activities</h2>
-      <div class="event-card">
-        <h3>Team Meetup - AI Project</h3>
-        <p>Join a group working on a smart chatbot. Looking for frontend and ML developers.</p>
-      </div>
+      <h2 class="section-heading">Upcoming Collabs</h2>
+      <div id="upcomingCollabs" class="events-grid"></div>
+
+      <h2 class="section-heading">Past Collabs</h2>
+      <div id="pastCollabs" class="events-grid"></div>
     </div>
 
       
