@@ -33,7 +33,7 @@ router.get('/questions', async (req, res) => {
     const questions = await Question.find().populate('postedBy', 'username role').sort({ createdAt: -1 });
     res.json(questions);
   } catch (error) {
-    console.error("❌ Error in /questions route:", error);
+    console.error("Error in /questions route:", error);
     res.status(500).json({ error: 'Failed to fetch questions' });
   }
 });

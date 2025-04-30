@@ -21,7 +21,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
       console.log("Server Response:", data);
   
       if (res.ok) {
-        alert("Login Successful ✅");
+        alert("Login Successful..");
         localStorage.setItem("userId", data._id);
         localStorage.setItem("username", data.username);
         localStorage.setItem("photo", data.photo); // will be used in nav
@@ -41,7 +41,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
       
 
       } else {
-        alert("Login Failed ❌ " + data.message);
+        alert("Login Failed " + data.message);
       }
     } catch (err) {
       console.error("Login error:", err);

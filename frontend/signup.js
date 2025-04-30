@@ -13,7 +13,7 @@
       const data = await res.json();
   
       if (res.status === 201) {
-        alert("Signup Successful ✅");
+        alert("Signup Successful..");
         form.reset();
         document.getElementById("preview-img").src = "../photo/photo.png"; // reset preview
       } else {

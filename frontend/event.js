@@ -11,7 +11,7 @@
     // Show the selected section
     const selectedSection = document.getElementById(id);
     if (selectedSection) {
-      selectedSection.style.display = 'block';
+      selectedSection.style.display = 'flex';
     }
   
     // Add 'active' class to the button that triggered this function
@@ -75,14 +75,23 @@
         const card = document.createElement('div');
         card.className = 'event-card';
 
+
         card.innerHTML = `
-          <img src="http://localhost:5000/uploads/${event.photo}" alt="Event Image" />
-          <h3>${event.title}</h3>
-          <p>${event.description}</p>
-          <p><strong>Date:</strong> ${new Date(event.date).toLocaleDateString()}</p>
-        `;
+        <div class="event-inner-vertical">
+          <img class="event-photo" src="http://localhost:5000/uploads/${event.photo}" alt="Event Image" />
+          <div class="event-content">
+            <h3 class="event-title">${event.title}</h3>
+            <p class="event-desc">${event.description}</p>
+            <p><strong>Date:</strong> ${new Date(event.date).toLocaleDateString()}</p>
+            <p><strong>Time Left:</strong> <span class="countdown" data-date="${event.date}"></span></p>
+            </div>
+            <button class="register-btn">Register Now</button>
+        </div>
+      `;
+      
 
         container.appendChild(card);
+        updateCountdowns();
       });
 
     } catch (error) {
@@ -105,19 +114,47 @@
         card.className = 'event-card';
 
         card.innerHTML = `
-          <img src="http://localhost:5000/uploads/${collab.photo}" alt="Event Image" />
-          <h3>${collab.title}</h3>
-          <p>${collab.description}</p>
-          <p><strong>Date:</strong> ${new Date(collab.date).toLocaleDateString()}</p>
-        `;
+        <div class="event-inner-vertical">
+          <img class="event-photo" src="http://localhost:5000/uploads/${collab.photo}" alt="Event Image" />
+          <div class="event-content">
+            <h3 class="event-title">${collab.title}</h3>
+            <p class="event-desc">${collab.description}</p>
+            <p><strong>Date:</strong> ${new Date(collab.date).toLocaleDateString()}</p>
+            <p><strong>Time Left:</strong> <span class="countdown" data-date="${collab.date}"></span></p>
+          </div>
+          <button class="register-btn">Register Now</button>
+        </div>
+      `;
 
         container.appendChild(card);
+        updateCountdowns();
       });
 
     } catch (error) {
       console.error('Error fetching events:', error);
     }
   } 
+
+  function updateCountdowns() {
+    const countdowns = document.querySelectorAll('.countdown');
+    countdowns.forEach((span) => {
+      const targetDate = new Date(span.getAttribute('data-date'));
+      const now = new Date();
+      const diff = targetDate - now;
+  
+      if (diff <= 0) {
+        span.textContent = "Started or passed";
+      } else {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        span.textContent = `${days}d ${hours}h ${minutes}m remaining`;
+      }
+    });
+  }
+  
+  setInterval(updateCountdowns, 60000);
+  
 
 
   const postQuestionBtn = document.getElementById("postQuestionBtn");
@@ -174,7 +211,7 @@ async function loadQuestions() {
 
   for (const q of questions) {
     const card = document.createElement("div");
-    card.className = "event-card";
+    card.className = "issue-card";
     const isFaculty = q.postedBy.role === "faculty";
     card.innerHTML = `
       <p><strong>${q.postedBy.username}${isFaculty ? ' (F)' : ''}</strong>: ${q.content}</p>
