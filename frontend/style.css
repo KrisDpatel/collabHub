@@ -13,7 +13,6 @@
     height: 100vh; /* Make the body take full height */
     display: flex;
     flex-direction: column; /* Stack the content and footer vertically */
-   
   }
 
   main {
@@ -24,7 +23,7 @@
   
   /* Header Section */
   header {
-    background-color: #210F37;
+    background-color: #210f37;
     color: white;
     padding: 15px;
     display: flex;

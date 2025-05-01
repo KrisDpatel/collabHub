@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="registration.css" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>Collab Hub</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" onclick="handleNavigation('events')">Events</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Signup Form Section -->
+    <main>
+        <section class="registration-container">
+            <form id="registration-form" class="registration-form" enctype="multipart/form-data">
+                <h2>Registration</h2>
+                <hr>
+
+                <!-- Text Fields -->
+                <input type="text" name="name" id="name" placeholder="Enter Full Name*" required />
+                <input type="text" name="er_no" id="er_no" placeholder="Enrollment No:*" required />
+                <input type="email" name="email" id="email" placeholder="Email*" required />
+                <input type="tel" name="mobile" id="mobile" placeholder="Mobile Number" />
+                <input type="text" name="department" id="department" placeholder="Department Name" />
+                <input type="text" name="semester" id="semester" placeholder="Semester" />
+
+                <button type="submit">Register</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Collab Hub. All Rights Reserved.</p>
+            <ul>
+                <li><a href="#">Terms and Conditions</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="registration.js" defer></script>
+    
+</body>
+
+</html>
