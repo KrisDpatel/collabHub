@@ -24,7 +24,7 @@
           <ul class="dropdown-menu" id="dropdownMenu" style="display: none;">
             <li><a href="profile-settings.html">Profile Settings</a></li>
             <li><a href="create-collab.html">Create Collab</a></li>
-            
+            <li><a href="">My Events</a></li>
           </ul>
         </li>
       </ul>
@@ -42,28 +42,41 @@
     </div>
 
     <!-- Content Sections -->
-    <div id="eventSection" class="tab-content">
-      <h2>Major Events</h2>
-      <div class="event-card">
-        <h3>Hackathon 2025</h3>
-        <p>A 48-hour coding marathon where teams solve real-world problems. Mentorship and cash prizes included.</p>
-      </div>
+    <div id="eventSection" class="tab-content events-grid">
+      <h2 style="text-align: center; margin-top: 30px;">Upcoming Events</h2>
+      <div id="upcomingEvents" class="events-grid"></div>
+
+      <h2 style="text-align: center; margin-top: 50px;">Past Events</h2>
+      <div id="pastEvents" class="events-grid"></div>
     </div>
 
-    <div id="collabSection" class="tab-content" style="display: none;">
-      <h2>Collab Activities</h2>
-      <div class="event-card">
-        <h3>Team Meetup - AI Project</h3>
-        <p>Join a group working on a smart chatbot. Looking for frontend and ML developers.</p>
-      </div>
+    <div id="collabSection" class="tab-content events-grid" style="display:none;">
+      <h2 class="section-heading">Upcoming Collabs</h2>
+      <div id="upcomingCollabs" class="events-grid"></div>
+
+      <h2 class="section-heading">Past Collabs</h2>
+      <div id="pastCollabs" class="events-grid"></div>
     </div>
 
-    <div id="issuesSection" class="tab-content" style="display: none;">
-      <h2>Q&A - Student Issues</h2>
-      <div class="event-card">
-        <h3>How to prepare for hackathons?</h3>
-        <p>Posted by: Riya123<br><em>Answers: Practice DSA, build small projects, read about design thinking...</em></p>
+      
+    <div id="issuesSection" class="tab-content events-grid" style="display: none;">
+      <h2>Q&A- Issues</h2>
+      <button id="postQuestionBtn">Ask Doubt ✎</button>
+      
+      <!-- POST QUESTION FORM (initially hidden) -->
+      <div id="questionFormContainer" class="question-form-container">
+        <form id="questionForm">
+          <h2>Post Your Question</h2>
+          <textarea id="questionText" placeholder="Type your question..." required></textarea>
+          <button type="submit">Submit</button>
+        </form>
       </div>
+
+    <!-- List of Questions -->
+    <div id="questionsList">
+
+      <div class="issue-card"></div>
+    </div>
     </div>
   </main>
 

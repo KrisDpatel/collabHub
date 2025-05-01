@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
-const User = require('../models/user');
+const User = require('../models/User');
 const router = express.Router();
 const multer = require("multer");
 
@@ -77,6 +77,7 @@ router.post("/login", async (req, res) => {
 
     res.status(200).json({ 
       message: "Login successful",
+      _id: existingUser._id,
     username: existingUser.username,
     photo: existingUser.photo,  // assuming this stores the filename like "myphoto.jpg"
     role: existingUser.role     // if you want to show role-based UI

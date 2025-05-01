@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Question = require('../models/Question');
 const Answer = require('../models/answer');
-const User = require('../models/user');
+const User = require('../models/User');
 
 // Post a question
 router.post('/questions', async (req, res) => {
@@ -30,9 +30,10 @@ router.post('/questions/:id/answers', async (req, res) => {
 // Get all questions with postedBy info
 router.get('/questions', async (req, res) => {
   try {
-    const questions = await Question.find().populate('postedBy', 'username role');
+    const questions = await Question.find().populate('postedBy', 'username role').sort({ createdAt: -1 });
     res.json(questions);
   } catch (error) {
+    console.error("Error in /questions route:", error);
     res.status(500).json({ error: 'Failed to fetch questions' });
   }
 });
