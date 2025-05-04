@@ -152,7 +152,7 @@
             <p><strong>Date:</strong> ${eventDateTime.toLocaleString()}</p>
             <p class="countdown" data-date="${eventDateTimeStr}" data-close="${registrationCloseTime.toISOString()}"></p>
           </div>
-          <button class="register-btn ${now >= registrationCloseTime ? 'disabled' : ''}" ${now >= registrationCloseTime ? 'disabled' : ''}>
+          <button class="register-btn ${now >= registrationCloseTime ? 'disabled' : ''}" ${now >= registrationCloseTime ? 'disabled' : ''} >
             ${now >= registrationCloseTime ? 'Registration Closed' : 'Register Now'}
           </button>
         </div>
@@ -393,6 +393,15 @@ async function loadAnswers(questionId) {
     container.appendChild(div);
   }
 }
+
+const registerBtn = card.querySelector('.register-btn');
+
+  if (!registrationClosed) {
+  registerBtn.addEventListener('click', () => {
+    // Change this URL to your desired registration page
+    window.location.href = `../registration.html`;
+  });
+  }
 
   // Call on page load
   document.addEventListener('DOMContentLoaded', ()=>{fetchEvents(),fetchCollabs(),loadQuestions()});
